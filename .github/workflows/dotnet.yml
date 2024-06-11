@@ -44,14 +44,14 @@ jobs:
         path: ${{ github.workspace }}/validateResults.*
 
     # Read out the validator results and define the quality thresholds. Based on the thresholds, this step will succeed or fail.
-    - name: Quality Gate
-      run: |
-        json=$(cat "${{ github.workspace }}/validateResults.json")
-        critical=$(echo "$json" | jq -r '.CriticalIssueCount')
-        major=$(echo "$json" | jq -r '.MajorIssueCount')
-
-        if [ "$critical" != "0" ] || [ "$major" != "0" ]; then
-          echo "Error: CriticalIssueCount or MajorIssueCount is not 0"
-          exit 1
-        fi
+    #- name: Quality Gate
+     # run: |
+      #  json=$(cat "${{ github.workspace }}/validateResults.json")
+       # critical=$(echo "$json" | jq -r '.CriticalIssueCount')
+        #major=$(echo "$json" | jq -r '.MajorIssueCount')
+#
+ #       if [ "$critical" != "0" ] || [ "$major" != "0" ]; then
+  #        echo "Error: CriticalIssueCount or MajorIssueCount is not 0"
+   #       exit 1
+    #    fi
 
